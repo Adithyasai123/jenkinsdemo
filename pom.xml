@@ -96,15 +96,15 @@
 	<distributionManagement>
 	
 	    <repository>
-	      <id></id>
-	      <name></name>
-	      <url></url>
+	      <id>nexus</id>
+	      <name>admin</name>
+	      <url>http://3.110.161.12:9491/repository/flipkart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id></id>
-	      <name></name>
-	      <url></url>
+	      <name>admin</name>
+	      <url>http://3.110.161.12:9491/repository/flipkart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
