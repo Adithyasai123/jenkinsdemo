@@ -99,13 +99,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>admin</name>
-	      <url>http://43.204.212.100:8081/repository/flipkart-release/</url>
+	      <url>http://35.154.213.216:8081/repository/flipkart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>admin</name>
-	      <url>http://43.204.212.100:8081/repository/flipkart-snapshot/</url>
+	      <url>http://35.154.213.216:8081/repository/flipkart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
