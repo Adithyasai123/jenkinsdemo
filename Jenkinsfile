@@ -8,13 +8,13 @@ node{
     
     stage('Build')
                  {sh "$mvnhome/bin/mvn clean package"}
-    stage('deploy to nexus')
+    
+    /*stage('deploy to nexus')
                  {sh "$mvnhome/bin/mvn clean deploy"}
     stage('deploy to Tomcat'){
         sshagent(['TomcatServer']){
        sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@3.110.190.46:/opt/apache-tomcat-9.0.76/webapps/maven-web-application.war"
            }
-       }
-   
+       }*/   
     
 }
