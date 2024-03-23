@@ -1,7 +1,6 @@
- 
 pipeline {
     agent any
-
+    
     stages {
         stage('Fetch Crumb') {
             steps {
@@ -11,15 +10,23 @@ pipeline {
                 }
             }
         }
-        stage('Trigger Webhook') {
+        stage('Build') {
             steps {
-                script {
-                    // Include the crumb in the webhook request
-                    sh "curl -s 'http://3.111.34.178:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
-"
-                }
+                // Your build steps here
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Your test steps here
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Your deployment steps here
+                echo 'Deploying...'
             }
         }
     }
 }
-
