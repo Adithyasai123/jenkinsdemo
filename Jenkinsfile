@@ -30,14 +30,15 @@ pipeline {
         }
     }
     
- post {
-    success {
-        script {
-            // Create a tag in GitHub
-            sh "git tag -a release-${BUILD_NUMBER} -m 'Release ${BUILD_NUMBER}'"
-            sh "git push --tags --force --quiet https://adithyaacgacg3@gmail.com:Adithya.sai@3427/Adithyasai123/jenkinsdemo.git"
+    post {
+        success {
+            script {
+                // Create a tag in GitHub using Jenkins credentials
+                withCredentials([usernamePassword(credentialsId: 'adithyaacgacg3@gmail.com', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh "git tag -a release-${BUILD_NUMBER} -m 'Release ${BUILD_NUMBER}'"
+                    sh "git push --tags --force --quiet https://github.com/Adithyasai123/jenkinsdemo.git"
+                }
+            }
         }
     }
-}
-
 }
