@@ -15,7 +15,8 @@ pipeline {
             steps {
                 script {
                     // Include the crumb in the webhook request
-                    sh "curl -X POST -H '$CRUMB' 'http://your-jenkins-url/github-webhook/'"
+                    sh "curl -s 'http://3.111.34.178:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+"
                 }
             }
         }
