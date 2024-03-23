@@ -34,7 +34,7 @@ pipeline {
         success {
             script {
                 // Create a tag in GitHub using Jenkins credentials
-                withCredentials([usernamePassword(credentialsId: '59925bcf-2f2d-4485-9fe3-18a1331ba435', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: '59925bcf-2f2d-4485-9fe3-18a1331ba435', usernameVariable: 'adithyaacgacg3@gmail.com', passwordVariable: 'Adithya.sai@3427')]) {
                     sh "git tag -a release-${BUILD_NUMBER} -m 'Release ${BUILD_NUMBER}'"
                     sh "git push --tags --force --quiet https://github.com/Adithyasai123/jenkinsdemo.git"
                 }
