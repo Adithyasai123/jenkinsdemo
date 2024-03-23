@@ -1,22 +1,24 @@
  
-
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Fetch Crumb') {
             steps {
-                echo 'Building HelloWorld...'
+                script {
+                    // Fetch the crumb from Jenkins
+                    CRUMB = sh(script: "curl -s 'http://your-jenkins-url/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)'", returnStdout: true).trim()
+                }
             }
         }
-        stage('Test') {
+        stage('Trigger Webhook') {
             steps {
-                echo 'Running tests...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying HelloWorld...'
+                script {
+                    // Include the crumb in the webhook request
+                    sh "curl -X POST -H '$CRUMB' 'http://your-jenkins-url/github-webhook/'"
+                }
             }
         }
     }
 }
+
