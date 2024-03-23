@@ -29,4 +29,14 @@ pipeline {
             }
         }
     }
+    
+    post {
+        success {
+            script {
+                // Create a tag in GitHub
+                sh "git tag -a release-${BUILD_NUMBER} -m 'Release ${BUILD_NUMBER}'"
+                sh "git push origin release-${BUILD_NUMBER}"
+            }
+        }
+    }
 }
